@@ -281,7 +281,6 @@ function AppViewModel() {
     if (typeof google === 'object' && typeof google.maps === 'object') {
       // Request hiking Locations
       getHikingLocations();
-      console.log('working')
     } else {
       alert('Something went wrong, Please try again Later!')
     }
