@@ -58,13 +58,15 @@ body {
   top: 20px;
   border-radius: 2px;
   box-sizing: border-box;
+  background: #fff;
 }
 
 .search-input input {
-  width: 100%;
+  width: 90%;
   outline: none;
   font-size: 18px;
   border: none;
+  margin-left: 20px;
 }
 
 .search-list {
