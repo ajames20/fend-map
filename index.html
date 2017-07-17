@@ -18,7 +18,6 @@
     <ul data-bind="foreach: filteredArray" class="list-view">
       <li data-bind="text: marker.title, click: $parent.clickMarker"></li>
     </ul>
-
     <span class="no-listing" data-bind="visible: !filteredArray().length" style="display: none;">No Results Found</span>
   </section>
 
