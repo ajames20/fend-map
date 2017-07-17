@@ -303,7 +303,6 @@ function AppViewModel() {
         setBounds(mapBounds);
       }).catch((err) => {
         // Error :(
-        console.log(err);
         alert('Something went wrong, Please try again Later!');
       });
   }
