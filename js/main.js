@@ -380,7 +380,7 @@ function AppViewModel() {
   getHikingLocations();
 }
 
-(function () {
-  ko.applyBindings(new AppViewModel());
-}());
+
+ko.applyBindings(new AppViewModel());
+
 
