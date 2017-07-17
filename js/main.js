@@ -278,7 +278,17 @@ function AppViewModel() {
       google.maps.event.trigger(map, 'resize');
       map.setCenter(center);
     });
+    if (typeof google === 'object' && typeof google.maps === 'object') {
+      // Request hiking Locations
+      getHikingLocations();
+      console.log('working')
+    } else {
+      alert('Something went wrong, Please try again Later!')
+    }
   }
+
+  // Initialize Map
+  initMap();
 
   function getHikingLocations() {
     // Create fourSqaureURL
@@ -369,11 +379,6 @@ function AppViewModel() {
       console.log(marker.getAnimation())
     }
   }
-
-  // Initialize Map
-  initMap();
-  // Request hiking Locations
-  getHikingLocations();
 }
 
 ko.applyBindings(new AppViewModel());
