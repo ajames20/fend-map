@@ -379,7 +379,7 @@ function AppViewModel() {
   }
 }
 
-ko.applyBindings(new AppViewModel());
+// ko.applyBindings(new AppViewModel());
 
 
 

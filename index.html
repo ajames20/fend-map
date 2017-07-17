@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body>
+<body onload="ko.applyBindings(new AppViewModel());">
   <section class="search-input">
     <input type="text" placeholder="Filter Hiking Location" data-bind="textInput: filterLocations">
   </section>
