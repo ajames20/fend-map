@@ -370,9 +370,6 @@ function AppViewModel() {
     }
   }
 
-  // setTimeout(() => {
-  //   marker.setAnimation(null);
-  // }, 800);
   // Initialize Map
   initMap();
   // Request hiking Locations
