@@ -361,7 +361,7 @@ function AppViewModel() {
 
     function toggleBounce(marker) {
       // Map documentation explains to use loosely equal function does not work with strict equality
-      if (marker.setAnimation() != null) {
+      if (!marker.setAnimation() === null) {
         marker.setAnimation(null);
       } else {
         marker.setAnimation(google.maps.Animation.BOUNCE);
