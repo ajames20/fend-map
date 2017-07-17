@@ -337,7 +337,7 @@ function AppViewModel() {
         <h4>${(address === undefined) ? '' : address}</h4>
         <p><strong>Popularity:</strong> <span class="hike-rating">${(rating === undefined) ? 'No Rating' : `${rating}/10`}</span></p>
         <p>${(location.tips === undefined) ? '' : `<strong>Tips: </strong> ${location.tips['0'].text}`}</p>
-        <img src="../img/foursquare-128.png" alt="foursquare icon"/>
+        <img src="https://maxcdn.icons8.com/Share/icon/Logos//foursquare1600.png" alt="foursquare icon"/>
       </div > `;
 
       marker = new google.maps.Marker({
