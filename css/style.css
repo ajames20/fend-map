@@ -1,0 +1,109 @@
+html,
+body {
+  font-family: Arial, sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#map {
+  bottom: 0px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  right: 0px;
+}
+
+.marker-window {
+  max-width: 200px;
+}
+
+.marker-window img {
+  width: 30px;
+  height: 30px;
+}
+
+.hike-title {
+  color: #337ab7;
+}
+
+.hike-title p {
+  margin: 0;
+}
+
+.hike-rating {
+  display: inline-block;
+  min-width: 10px;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  text-align: center;
+  background-color: #A3C7DF;
+  border-radius: 5px;
+  margin: 0 0 0 10px;
+}
+
+.search-input {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 90%;
+  height: 40px;
+  display: flex;
+  z-index: 200;
+  position: fixed;
+  left: 20px;
+  top: 20px;
+}
+
+.search-input input {
+  width: 100%;
+  outline: none;
+  font-size: 18px;
+}
+
+.search-list {
+  position: absolute;
+  top: 44%;
+  left: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid gray;
+  z-index: 200;
+  font-size: 12px;
+  min-height: 200px;
+  max-height: 50%;
+  width: 200px;
+  max-width: 30%;
+  text-align: center;
+  overflow: scroll;
+}
+
+.search-list ul,
+.no-listing {
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  width: 90%;
+}
+
+.search-list ul li {
+  margin: 5px 0;
+  padding: 3px 4px;
+  border: 1px solid #A3C7DF;
+  background: #A3C7DF;
+  color: #fff;
+}
+
+.search-list ul li:hover {
+  cursor: pointer;
+}
+
+.no-listing {
+  position: absolute;
+  color: #9E9E9E;
+  top: 50%;
+  left: 5%
+}

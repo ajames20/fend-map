@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Neighborhood Map</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <section class="search-input">
+    <input type="text" placeholder="Filter Location" data-bind="textInput: filterLocations">
+  </section>
+
+  <section class="search-list">
+    <ul data-bind="foreach: filteredArray" class="list-view">
+      <li data-bind="text: marker.title, click: $parent.clickMarker"></li>
+    </ul>
+
+    <span class="no-listing" data-bind="visible: !filteredArray().length" style="display: none;">No Results Found</span>
+  </section>
+
+  <section id="map">
+  </section>
+
+  <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTj2p3uHszEq3KcY608r-pITaEq7dW96A&v=3&?libraries=places">
+  </script>
+  <script async src="./js/knockout-3.4.2.js"></script>
+  <script async src="./js/main.js"></script>
+</body>
+
+</html>
