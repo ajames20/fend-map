@@ -360,12 +360,10 @@ function AppViewModel() {
     });
 
     function toggleBounce(marker) {
-      // Map documentation explains to use loosely equal function does not work with strict equality
-      if (!marker.setAnimation() === null) {
-        marker.setAnimation(null);
+      if (marker.getAnimation() === null) {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
       } else {
         marker.setAnimation(google.maps.Animation.BOUNCE);
-        // Timeout to stop animation
         setTimeout(() => {
           marker.setAnimation(null);
         }, 800);
