@@ -375,7 +375,6 @@ function AppViewModel() {
           marker.setAnimation(null);
         }, 800);
       }
-      console.log(marker.getAnimation())
     }
   }
 }
