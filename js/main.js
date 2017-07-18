@@ -362,7 +362,7 @@ function AppViewModel() {
     });
 
     function toggleBounce(marker) {
-      if (marker.getAnimation() !== null || marker.getAnimation() === undefined) {
+      if (marker.getAnimation() !== null) {
         marker.setAnimation(google.maps.Animation.BOUNCE);
         setTimeout(() => {
           marker.setAnimation(null);
