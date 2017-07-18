@@ -251,13 +251,8 @@ function AppViewModel() {
   // Pan to an open content window when list item is clicked
   self.clickMarker = function (venue) {
     const hikingMarker = venue.marker.title.toLowerCase();
-    self.mapMarkers().forEach((marker, i) => {
-      const title = marker.marker.title.toLowerCase();
-      if (title === hikingMarker) {
-        google.maps.event.trigger(marker.marker, 'click');
-        map.panTo(marker.marker.position);
-      }
-    });
+    google.maps.event.trigger(venue.marker, 'click');
+    map.panTo(venue.marker.position);
   };
 
   // Load google map

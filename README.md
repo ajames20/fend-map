@@ -4,6 +4,12 @@ Neighborhood Map Project Front-end Web Development
 
 [Demo](https://ajames20.github.io/fend-map/)
 
+## Open Project Locally
+
+1. Download files, or clone repository from [github](  https://github.com/ajames20/fend-map
+)
+1. Then open `index.html`
+
 ## Project Overview
 Single page application featuring a map a city hiking locations. This map includes highlighted locations, third-party data about those locations and various ways to browse the content.
 
