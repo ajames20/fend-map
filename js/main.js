@@ -318,6 +318,9 @@ function AppViewModel() {
         new google.maps.LatLng(mapBounds.ne.lat, mapBounds.ne.lng));
       map.fitBounds(bounds);
     }
+    google.maps.event.addDomListener(window, 'resize', function () {
+      map.fitBounds(bounds); // `bounds` is a `LatLngBounds` object
+    });
   }
 
   // Place all map markers from foursquare response
@@ -362,8 +365,8 @@ function AppViewModel() {
     });
 
     function toggleBounce(marker) {
+      marker.setAnimation(google.maps.Animation.BOUNCE);
       if (marker.getAnimation() !== null) {
-        marker.setAnimation(google.maps.Animation.BOUNCE);
         setTimeout(() => {
           marker.setAnimation(null);
         }, 700);
