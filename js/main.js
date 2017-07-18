@@ -366,7 +366,7 @@ function AppViewModel() {
         marker.setAnimation(google.maps.Animation.BOUNCE);
         setTimeout(() => {
           marker.setAnimation(null);
-        }, 800);
+        }, 700);
       }
     }
   }
