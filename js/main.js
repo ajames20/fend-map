@@ -232,20 +232,14 @@ function initMap() {
     google.maps.event.trigger(map, 'resize');
     map.setCenter(center);
   });
-  if (typeof google === 'object' && typeof google.maps === 'object') {
-    // Request hiking Locations
-    // AppViewModel.getHikingLocations()
-  } else {
-    alert('Something went wrong, Please try again Later!')
-  }
 }
 
 function googleError() {
-  alert('Oops something went wrong with Google Maps. Please Try again later!')
+  alert('Oops something went wrong with Google Maps. Please Try again later!');
 }
 
 function AppViewModel() {
-  const self = this
+  const self = this;
   let infoWindow;
   let name;
   let lat;
@@ -311,7 +305,6 @@ function AppViewModel() {
         setBounds(mapBounds);
       }).catch((err) => {
         // Error :(
-        console.log(err)
         alert('Something went wrong, Please try again Later!');
       });
   }
@@ -330,7 +323,6 @@ function AppViewModel() {
   // Place all map markers from foursquare response
   function placeMapMarkers(arr) {
     // Create new marker for each location
-    console.log(arr)
     arr.forEach((location, i) => {
       infoWindow = new google.maps.InfoWindow();
       name = location.venue.name;
@@ -354,7 +346,7 @@ function AppViewModel() {
         title: name,
         position: myLatLng,
       });
-      console.log(marker)
+
       self.mapMarkers.push({ marker, contentString });
 
       // AddListner for each marker
@@ -378,7 +370,7 @@ function AppViewModel() {
       }
     }
   }
-  getHikingLocations()
+  getHikingLocations();
 }
 
 ko.applyBindings(new AppViewModel());
