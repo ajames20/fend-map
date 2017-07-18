@@ -1,4 +1,7 @@
-function AppViewModel() {
+let map;
+
+// Load google map
+function initMap() {
   // Styles for map
   const styles = [{
     featureType: 'all',
@@ -208,11 +211,41 @@ function AppViewModel() {
     }],
   },
   ];
-  const self = this;
+
   const defaultLocation = {
     lat: 33.4484,
     lng: -112.0740,
   };
+  // Constructor creates a new map - only center and zoom are required.
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: defaultLocation,
+    // Add custom map styles
+    styles,
+    zoom: 12,
+    mapTypeId: 'terrain',
+    disableDefaultUI: true,
+  });
+
+  // Make google map responsive to window size
+  google.maps.event.addDomListener(window, 'resize', () => {
+    const center = map.getCenter();
+    google.maps.event.trigger(map, 'resize');
+    map.setCenter(center);
+  });
+  if (typeof google === 'object' && typeof google.maps === 'object') {
+    // Request hiking Locations
+    // AppViewModel.getHikingLocations()
+  } else {
+    alert('Something went wrong, Please try again Later!')
+  }
+}
+
+function googleError() {
+  alert('Oops something went wrong with Google Maps. Please Try again later!')
+}
+
+function AppViewModel() {
+  const self = this
   let infoWindow;
   let name;
   let lat;
@@ -220,7 +253,6 @@ function AppViewModel() {
   let myLatLng;
   let address;
   let activeInfoWindow;
-  let map;
   let fourSquareBaseURL;
   let latLng;
   let query;
@@ -255,34 +287,6 @@ function AppViewModel() {
     map.panTo(venue.marker.position);
   };
 
-  // Load google map
-  function initMap() {
-    // Constructor creates a new map - only center and zoom are required.
-    map = new google.maps.Map(document.getElementById('map'), {
-      center: defaultLocation,
-      // Add custom map styles
-      styles,
-      zoom: 12,
-      mapTypeId: 'terrain',
-      disableDefaultUI: true,
-    });
-
-    // Make google map responsive to window size
-    google.maps.event.addDomListener(window, 'resize', () => {
-      const center = map.getCenter();
-      google.maps.event.trigger(map, 'resize');
-      map.setCenter(center);
-    });
-    if (typeof google === 'object' && typeof google.maps === 'object') {
-      // Request hiking Locations
-      getHikingLocations();
-    } else {
-      alert('Something went wrong, Please try again Later!')
-    }
-  }
-
-  // Initialize Map
-  initMap();
 
   function getHikingLocations() {
     // Create fourSqaureURL
@@ -307,6 +311,7 @@ function AppViewModel() {
         setBounds(mapBounds);
       }).catch((err) => {
         // Error :(
+        console.log(err)
         alert('Something went wrong, Please try again Later!');
       });
   }
@@ -314,7 +319,7 @@ function AppViewModel() {
   // Set Map Boundaries based on foursquare map suggested map boundaries
   function setBounds(bounds) {
     const mapBounds = bounds.suggestedBounds;
-    if (mapBounds !== undefined) {
+    if (bounds !== undefined) {
       bounds = new google.maps.LatLngBounds(
         new google.maps.LatLng(mapBounds.sw.lat, mapBounds.sw.lng),
         new google.maps.LatLng(mapBounds.ne.lat, mapBounds.ne.lng));
@@ -325,6 +330,7 @@ function AppViewModel() {
   // Place all map markers from foursquare response
   function placeMapMarkers(arr) {
     // Create new marker for each location
+    console.log(arr)
     arr.forEach((location, i) => {
       infoWindow = new google.maps.InfoWindow();
       name = location.venue.name;
@@ -348,7 +354,7 @@ function AppViewModel() {
         title: name,
         position: myLatLng,
       });
-
+      console.log(marker)
       self.mapMarkers.push({ marker, contentString });
 
       // AddListner for each marker
@@ -372,7 +378,10 @@ function AppViewModel() {
       }
     }
   }
+  getHikingLocations()
 }
+
+ko.applyBindings(new AppViewModel());
 
 
 
