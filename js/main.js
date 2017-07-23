@@ -1,5 +1,3 @@
-let map;
-
 // Load google map
 function initMap() {
   // Styles for map
