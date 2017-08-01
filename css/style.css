@@ -115,3 +115,12 @@ body {
   top: 50%;
   left: 5%
 }
+
+.foursquare {
+  display: flex;
+  align-items: center;
+}
+
+.foursquare img {
+  margin-right: -5px;
+}
