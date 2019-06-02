@@ -2,7 +2,7 @@
 
 Neighborhood Map Project Front-end Web Development 
 
-[Demo](https://ajames20.github.io/fend-map/)
+[Demo](https://andrew-t-james.github.io/fend-map/)
 
 ## Open Project Locally
 
@@ -11,7 +11,7 @@ Neighborhood Map Project Front-end Web Development
 1. Then open `index.html`
 
 ## Project Overview
-Single page application featuring a map a city hiking locations. This map includes highlighted locations, third-party data about those locations and various ways to browse the content.
+Single page application. This map includes highlighted locations, third-party data about those locations and various ways to browse the content.
 
 ## Why this Project?
 
